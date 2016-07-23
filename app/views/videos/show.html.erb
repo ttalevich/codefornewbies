@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col m3">
+			<div class="collection">
+				<% @videos.each do |video| %>
+				<%= link_to video.title, video, :class => 'collection-item' %>
+				<% end %>
+			</div>
+		</div>
+		<div class="col m9">
+			<div class="card">
+				<div class="card-content grey-text">
+					<div class="card-image">
+						<script src="//fast.wistia.com/assets/external/E-v1.js" async></script>
+						<div class="wistia_embed wistia_async_<%= @video.wistia %>" style="height:500px; width:100%;
+						"></div>
+						<script>
+							window._wq = window._wq || [];
+							_wq.push({ "abc": function(video) {
+								console.log("I got a handle to the video!", video);
+									videoQuality: "hd-only",
+									videoFoam: true
+							}});
+							function setPlaySpeed(r){
+									video.playbackRate();
+							}
+						</script>
+					</div>
+
+					<span class="card-title"><%= @video.title %></span>
+					<p><%= @video.description %></p>
+					<button class="btn waves-effect waves-light btn-primary" onClick="setPlaySpeed(0.75);">0.75X</button>
+					<button class="btn waves-effect waves-light btn-primary" onClick="setPlaySpeed(1);">1X</button>
+					<button class="btn waves-effect waves-light btn-primary" onClick="setPlaySpeed(1.25);">1.25X</button>
+					<button class="btn waves-effect waves-light btn-primary" onClick="setPlaySpeed(1.5);">1.5X</button>
+					<button class="btn waves-effect waves-light btn-primary" onclick="setPlaySpeed(2)">2X</button>
+				</div>
+				<div class="card-action">
+					<%= link_to "Previous", @prev_video if !@prev_video.nil? %>
+					<span class="right"><%= link_to "Next", @next_video if !@next_video.nil? %></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Videos</h1>
+<%= link_to new_video_path, :class => 'btn waves-effect waves-light' do %>
+	<span>Add</span>
+	<i class="material-icons left">open_in_new</i>
+<% end %>
+	<ul class="collapsible" data-collapsible="accordian">
+		<% @videos.each do |video| %>
+			<li class="">
+				<div class="collapsible-header">
+					<i class="material-icons">library_books</i>
+					<%= link_to video.title, video %>
+					<span class="right"><%= link_to edit_video_path(video) do %>
+						<i class="material-icons">edit</i><% end %>
+					<%= link_to video, method: :delete, data: { confirm: 'Are you sure you want to delete this video?' } do %>
+						<i class="material-icons">cancel</i><% end %>
+						</span>
+			</div>
+			<div class="collapsible-body"><p><%= video.description %></p></div>
+			</li>
+		<% end %>
+	</ul>
