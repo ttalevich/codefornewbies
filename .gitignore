@@ -17,4 +17,5 @@
 /tmp
 
 # You can't have my secrets
-/config/secrets.yml
+
+config/secrets.yml
