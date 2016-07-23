@@ -16,4 +16,5 @@
 !/log/.keep
 /tmp
 
-secrets.yml
+# You can't have my secrets
+/bin/secrets.yml
